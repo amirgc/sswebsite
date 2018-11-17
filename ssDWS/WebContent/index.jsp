@@ -6,9 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
-<link rel="stylesheet"
+<link rel="stylesheet"  type="text/css"
 	href="static/lib/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="static/css/site.css" />
+<link rel="stylesheet"  type="text/css" href="static/css/site.css" />
 
 
 </head>
