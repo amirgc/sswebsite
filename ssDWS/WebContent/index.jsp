@@ -27,6 +27,28 @@
 			<li role="separator" class="divider"></li>
 			<li><a href="#">Separated link</a></li>
 		</ul>
+		
+		<div class="row">
+			<div>
+				<h1>Company Name</h1>	
+				<p>
+				<i class="fa fa-globe" aria-hidden="true"></i>
+				Fairfield, Iowa, USA
+				</p>
+				<p>
+				<i class="fa fa-phone" aria-hidden="true"></i>
+				1-402-432-9789
+				</p>
+				<p>
+				<i class="fa fa-envelope" aria-hidden="true"></i>
+				info@company.com
+				</p>
+				
+			</div>
+			<div>
+			
+			</div>
+		</div>
 	</div>
 	<script src="static/lib/jquery/dist/jquery.js"></script>
 	<script src="static/lib/bootstrap/dist/js/bootstrap.js"></script>
