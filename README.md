@@ -1,0 +1,2 @@
+# sswebsite
+Project Description: This is a dynamic website for any company. It includes two modules: User and Admin. User part is where all information of the company (products, news feed, contact info ) is displayed in website  and also user can send feedbacks to the company . Admin module is for the admin where he should login, can view the feedbacks, post news feed which will be displayed on user side.
