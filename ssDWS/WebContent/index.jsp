@@ -36,7 +36,9 @@
 				</c:when>
 
 				<c:when test="${displayPage=='contact'}">
+				<section id="home" class="contact bg-black fix">
 					<jsp:include page="views/contactUs.jsp" />
+				</section>
 				</c:when>
 
 				<c:otherwise>
