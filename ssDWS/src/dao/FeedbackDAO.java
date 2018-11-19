@@ -10,7 +10,7 @@ public class FeedbackDAO {
 	HashMap<String, Feedback> feedbacksDB = new HashMap<>();
 
 	public void addFeedback(Feedback fb) {
-		feedbacksDB.put(fb.getUser().getEmail(), fb);
+		feedbacksDB.put(fb.getEmail(), fb);
 	}
 	
 	public void addFeedback(String email, Feedback fb) {

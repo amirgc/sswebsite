@@ -8,6 +8,7 @@ $(function() {
 
 	function submitFeedback() {
 		console.log('called inside submit feedback');
+		
 		var fname = $('#firstName').val();
 		var lname = $('#lastName').val();
 		var country = $('#country').val();
@@ -16,6 +17,9 @@ $(function() {
 		var email = $('#email').val();
 		var phone = $('#phone').val();
 		var feedbackText = $('#feedback').val();
+		
+		//reset the fields
+		$('input[type="text"],textarea').val('');
 
 		var feedback = {
 			fname : fname,
@@ -27,44 +31,22 @@ $(function() {
 			phone : phone,
 			feedbackText : feedbackText
 		};
-
-		console.log(feedback);
 		// $.get('contact');
-
-		$.post('contact', {
-			feedback : JSON.stringify(feedback)
-		}, processData, "json")
-
-		// var saveData = $.ajax({
-		// type : 'POST',
-		// url : "contact",
-		// data : feedback,
-		// dataType : "text",
-		// success : function(resultData) {
-		// alert("Save Complete")
-		// }
-		// });
-		//
-		// saveData.error(function() {
-		// alert("Something went wrong");
-		// });
-
-		// var productName = $('#product_name').val();
-		// var productPrice = $('#product_price').val();
-		// var product = {name:productName, price:productPrice};
-		// $.post('product',{product: JSON.stringify(product)}, processData,
-		// "json")
+		
+		$.post('contact', {feedback : JSON.stringify(feedback)}) 
+				.done(processData, "json");  //json is the argument to the processData function
 	}
 
 	function processData(data) {
-		// data = JSON.parse(data);
-		// var td0=$('<td>').text(data.id);
-		// var td1 = $('<td>').text(data.name);
-		// var td2 = $('<td>').text(data.price);
-		// var tr = $('<tr>').append(td0).append(td1).append(td2);
-		// $('#tbl_products>tbody').append(tr);
-		console.log(data);
-
-		// $('#myTxt').append($('<p>'.text(data.fname).css("background-color","blue")));
+		console.log(data);	
+		$('#response').append($("<p>", {
+			"text" : "Submission Successful !!",
+			"css" : {
+				"color":"green",
+				"font-family":"monospace",
+				"margin": "30px"
+			}
+		}));
+//		$("<p>").text("Submission Successful !!").css("color","green").appendTo($("#response"));	
 	}
 })
