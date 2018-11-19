@@ -7,6 +7,11 @@ $(function() {
 	console.log('called function');
 	$('#btn_submit').click(submitFeedback);
 	
+	$("input[type='text'], textarea").click(function() {
+												$("#response p")
+												.text("");
+											});
+	
 	var fname;
 	var lname;
 	var country;
