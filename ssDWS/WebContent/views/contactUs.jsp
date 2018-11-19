@@ -74,7 +74,7 @@
                     </div>
                 </form> -->
 
-			<form method="post" >
+			<form method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<label for="firstName">First name</label> <input type="text"
