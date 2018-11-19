@@ -29,7 +29,6 @@ public class ContactController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		System.out.println("get  called");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -41,15 +40,19 @@ public class ContactController extends HttpServlet {
 		String jsonString = request.getParameter("feedback");
 		System.out.println("feed back ko value");
 		System.out.println(jsonString);
-		Feedback feedback = mapper.readValue(jsonString, Feedback.class);
+		Feedback feedback = mapper.readValue(jsonString, Feedback.class); //uses default (i.e.empty) constructor and setter methods of Feedback class to create this object
 		dao.addFeedback(feedback);
 
 		PrintWriter out = response.getWriter();
 		try {
-			out.print(mapper.writeValueAsString(feedback));
+			//System.out.println(mapper.writeValueAsString(feedback));
+			out.print(mapper.writeValueAsString(feedback)); //convert the java object "feedback" to json (which is just a string wrapper over js object)
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		}
+		
+		dao.getAllFeedbacks().stream()
+							 .forEach(System.out::println);
 		
 //		String fname = request.getParameter("fname");
 //		String lname = request.getParameter("lname");

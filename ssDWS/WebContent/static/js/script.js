@@ -55,7 +55,7 @@ $(function() {
 		// $.get('contact');
 		
 		$.post('contact', {feedback : JSON.stringify(feedback)}) 
-				.done(processData, "json")  //json is the argument to the processData function
+				.done(processData, "json")  //putting "json" here tells the called function that data we are passing is json data so it doesnot need to do JSON.stringfy() inside it. By default it is text data 
 				.fail(function() {
 					$("#response p")
 					.text("Error during submission !")
