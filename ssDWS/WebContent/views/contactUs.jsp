@@ -1,18 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" type="text/css" href="static/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/site.css" />
-
-</head>
-
-<body>
     <div class="row">
         <div class="col-md-3">
             <h1>Company Name</h1>
@@ -31,8 +16,8 @@
 
         </div>
         <div class="col-md-9">
-            <div>
-                Please use the following form to send us your comments/enquiries.
+            <div id="myTxt">
+                Please use the following form to send us your feedbacks/enquiries.
                 <hr />
             </div>
             <div>
@@ -81,7 +66,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>
-                                Message<br><textarea rows="" cols="50" name="comments"></textarea>
+                                Message<br><textarea rows="" cols="50" name="feedback"></textarea>
                             </label>
                         </div>
 
@@ -96,19 +81,19 @@
                         <div class="col-md-6">
                             <label for="validationDefault01">First name</label>
                             <input type="text" class="form-control" id="validationDefault01" placeholder="First name"
-                                value="Mark" required>
+                                required>
                         </div>
                         <div class="col-md-6">
                             <label for="validationDefault02">Last name</label>
                             <input type="text" class="form-control" id="validationDefault02" placeholder="Last name"
-                                value="Otto" required>
+                                required>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="validationDefault03">City</label>
-                            <input type="text" class="form-control" id="validationDefault03" placeholder="City"
+                            <label for="validationDefault03">Country</label>
+                            <input type="text" class="form-control" id="validationDefault03" placeholder="Country"
                                 required>
                         </div>
                         <div class="col-md-4">
@@ -118,7 +103,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="validationDefault05">Zip</label>
-                            <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
+                            <input type="text" class="form-control" id="validationDefault05" placeholder="Zip">
                         </div>
                     </div>
 
@@ -138,10 +123,20 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="validationDefaultFeedback">Feedback</label>
+                            <div class="input-group">
+                                <textarea name="feedback" class="form-control" id="validationDefaultFeedback" 
+                                cols="100" rows="5" placeholder="Feedback/Enquiry" required></textarea>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-3">
-                            <br /><button class="btn btn-primary" type="submit">Submit form</button>
+                            <br /><button class="btn btn-primary" type="submit" id="btn_submit">Submit form</button>
                         </div>
                     </div>
                 </form>
@@ -149,7 +144,3 @@
             </div>
         </div>
     </div>
-
-</body>
-
-</html>
