@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="static/css/font-awesome.min.css">
 <link rel="stylesheet" href="static/css/bootsnav.css">
 
-
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse"
 	data-gr-c-s-loaded="true">
@@ -153,13 +152,15 @@
 			</nav>
 
 			<section id="home" class="home bg-black fix">
-				<jsp:include page="views/home.jsp" /></section>
-
+				<jsp:include page="views/home.jsp" />
+				<jsp:include page="views/contactUs.jsp" />
+			</section>
 
 		</div>
 
 		<script src="static/lib/jquery/dist/jquery.js"></script>
 		<script src="static/lib/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="static/js/script.js"></script>
 
 	</div>
 </body>
