@@ -96,4 +96,30 @@ $(function() {
 		}
 		return true;
 	}
+
+	function createSlick() {
+
+	}
+	createSlick();
+	$(window).on('resize', createSlick);
+
+	$(window)
+			.on(
+					'load',
+					function() {
+						console.log("slick called")
+						$(".hello_slid")
+								.not('.slick-initialized')
+								.slick(
+										{
+											dots : true,
+											infinite : false,
+											slidesToShow : 1,
+											slidesToScroll : 1,
+											arrows : true,											
+											autoplay : true,
+											autoplaySpeed : 2000
+										});
+					});
+
 })
