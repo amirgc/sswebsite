@@ -160,7 +160,7 @@
 
 		<script src="static/lib/jquery/dist/jquery.js"></script>
 		<script src="static/lib/bootstrap/dist/js/bootstrap.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="static/js/script.js"></script>
 
 	</div>
 </body>
