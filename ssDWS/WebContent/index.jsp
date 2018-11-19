@@ -45,6 +45,12 @@
 						<jsp:include page="views/contactUs.jsp" />
 					</section>
 				</c:when>
+				
+				<c:when test="${displayPage=='login'}">
+					<section id="home" class="login bg-black fix">
+						<jsp:include page="views/login.jsp" />
+					</section>
+				</c:when>
 
 				<c:otherwise>
 					<section id="home" class="home bg-black fix">
