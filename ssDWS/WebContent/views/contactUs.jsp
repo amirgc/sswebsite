@@ -1,4 +1,5 @@
-<div style="width:97%; margin:auto">
+<!-- <div style="width:97%; margin:auto"> -->
+<div>
 	<div class="row">
 	    <div class="col-md-3">
 	        <h1>Company Name</h1>
