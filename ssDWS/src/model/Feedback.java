@@ -108,7 +108,10 @@ public class Feedback {
 
 
 	public void setZip(String zip) {
-		this.zip = zip;
+		if(zip.equals("")) 
+			this.zip = "0";
+		else 
+			this.zip = zip;
 	}
 
 
