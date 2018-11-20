@@ -52,20 +52,24 @@ $(function() {
 			feedbackText : feedbackText
 		};
 		// $.get('contact');
-	
-		$.post('contact', {feedback : JSON.stringify(feedback)}) 
-				.done(processData, "json")  //putting "json" here tells the called function that data we are passing is json data so it doesnot need to do JSON.stringfy() inside it. By default it is text data 
-				.fail(function() {
-					$("#response p")
-					.text("Error during submission !")
-					.css({"color":"red", "margin":"30px"});
-				})
-				.always(function() {
-					setTimeout(function(){
-						$("#response p")
-						.text("");
-					}, 4000);
-				});
+
+		$.post('contact', {
+			feedback : JSON.stringify(feedback)
+		}).done(processData, "json") // putting "json" here tells the called
+		// function that data we are passing is
+		// json data so it doesnot need to do
+		// JSON.stringfy() inside it. By default
+		// it is text data
+		.fail(function() {
+			$("#response p").text("Error during submission !").css({
+				"color" : "red",
+				"margin" : "30px"
+			});
+		}).always(function() {
+			setTimeout(function() {
+				$("#response p").text("");
+			}, 4000);
+		});
 
 	}
 
@@ -103,44 +107,67 @@ $(function() {
 		return true;
 	}
 
-	// function createSlick() {
-	// console.log($(".hello_slid").not('.slick-initialized'));
-	// }
+	function createSlick() {
+		$(".slider")
+				.not('.slick-initialized')
+				.slick(
+						{
+							dots : true,
+							infinite : true,
+							slidesToShow : 1,
+							slidesToScroll : 1,
+							arrows : true,
+							prevArrow : "<i class='fa fa-angle-left main_home nextprevleft' style='font-size:48px;color:white'></i>",
+							nextArrow : "<i class='fa fa-angle-right main_home nextprevright' style='font-size:48px;color:white'></i>",
+							autoplay : true,
+							autoplaySpeed : 2000
+						});
 
-	$(".hello_slid").not('.slick-initialized').slick({
-		dots : true,
-		infinite : false,
-		slidesToShow : 1,
-		slidesToScroll : 1,
-		arrows : true,
-		prevArrow : "<i class='icon icon-chevron-left main_home nextprevleft'></i>",
-		nextArrow : "<i class='icon icon-chevron-right main_home nextprevright'></i>",
-		autoplay : true,
-		autoplaySpeed : 2000
+	}
+
+	createSlick();
+
+	// Now it will not throw error, even if called multiple times.
+	$(window).on('resize', createSlick);
+
+	$("#login-form").submit(function(e) {
+		let userName = $("#username").val();
+		let password = $("#password").val();
+
+		var loginData = {
+			userName : userName,
+			password : password
+		}
+
+		console.log(loginData);
+
+		// console.log($("#login-form").serialize())
+		// var data = $("#login-form").serialize().split("&");
+		// console.log(data);
+		// var loginData = {};
+		// for ( var key in data) {
+		// console.log(data[key]);
+		// loginData[data[key].split("=")[0]] = data[key].split("=")[1];
+		// }
+		//
+		// console.log(loginData);
+		$.post('login1', {
+			loginData : JSON.stringify(loginData)
+		}).done(redirectToAdmin);
+
+		e.preventDefault();
+
+		function redirectToAdmin(data) {
+			
+			if (data === "true") {
+				location.reload(); 
+				console.log("chhiriyo",data);
+				$.get('admin');
+			} else {
+
+			}
+		}
+
 	});
-
-
 
 })
-
-function createSlick() {
-	$(".slider").not('.slick-initialized').slick({
-		dots : true,
-		infinite : true,
-		slidesToShow : 1,
-		slidesToScroll : 1,
-		arrows : true,
-		prevArrow : "<i class='fa fa-angle-left main_home nextprevleft' style='font-size:48px;color:white'></i>",
-		nextArrow : "<i class='fa fa-angle-right main_home nextprevright' style='font-size:48px;color:white'></i>",
-		autoplay : true,
-		autoplaySpeed : 2000
-	});
-
-
-
-}
-
-createSlick();
-
-// Now it will not throw error, even if called multiple times.
-$(window).on('resize', createSlick);

@@ -8,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class IndexController
+ * Servlet implementation class AdminController
  */
-@WebServlet("")
-public class IndexController extends HttpServlet {
+@WebServlet("/admin")
+public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public IndexController() {
+	public AdminController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,13 +31,14 @@ public class IndexController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("servlet hit");
-		String displayPage=request.getParameter("displayPage");
-		System.out.println(displayPage);
-		request.setAttribute("displayPage", displayPage);
-		RequestDispatcher req = request.getRequestDispatcher("index.jsp");		
-		req.forward(request, response);
-
+		
+		String isLoggedIn=(String) request.getSession().getAttribute("isLoggedIn");
+		System.out.println("session value");
+		System.out.println(isLoggedIn);
+		
+		request.setAttribute("role", "admin");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
