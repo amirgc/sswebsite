@@ -17,8 +17,7 @@
 <link rel="stylesheet" href="static/css/iconfont.css">
 <link rel="stylesheet" type="text/css" href="static/css/site.css" />
 <link rel="stylesheet" href="static/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css"
-	href="static/css/bootsnav.css" />
+<link rel="stylesheet" type="text/css" href="static/css/bootsnav.css" />
 
 
 </head>
@@ -27,7 +26,7 @@
 	<div class="wrapper">
 
 		<div class="culmn">
-					
+
 			<c:set var="role" value="${role}" />
 			<c:set var="displayPage" value="${displayPage}" />
 			<c:choose>
@@ -45,7 +44,9 @@
 							<section id="home" class="home bg-black fix">
 								<jsp:include page="views/home.jsp" flush="true" />
 							</section>
-
+							<section id="features" class="features roomy-60">
+								<jsp:include page="views/product.jsp" flush="true" />
+							</section>
 						</c:when>
 
 						<c:when test="${displayPage=='contact'}">
@@ -64,8 +65,8 @@
 							<section id="home" class="home bg-black fix">
 								<jsp:include page="views/home.jsp" flush="true" />
 							</section>
-							<section id="home" class="home bg-black fix">
-								<jsp:include page="views/login.jsp" flush="true" />
+							<section id="features" class="features roomy-60">
+								<jsp:include page="views/product.jsp" flush="true" />
 							</section>
 						</c:otherwise>
 					</c:choose>
