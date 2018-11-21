@@ -33,10 +33,10 @@ public class IndexController extends HttpServlet {
 		System.out.println("servlet hit");
 		String displayPage=request.getParameter("displayPage");
 		System.out.println(displayPage);
+		request.setAttribute("role", "user");
 		request.setAttribute("displayPage", displayPage);
 		RequestDispatcher req = request.getRequestDispatcher("index.jsp");		
 		req.forward(request, response);
-
 	}
 
 	/**

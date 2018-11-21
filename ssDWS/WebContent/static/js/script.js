@@ -151,23 +151,21 @@ $(function() {
 		// }
 		//
 		// console.log(loginData);
-		$.post('login1', {
+		$.post('login', {
 			loginData : JSON.stringify(loginData)
-		}).done(redirectToAdmin);
+		}).done(location.reload());
 
 		e.preventDefault();
 
-		function redirectToAdmin(data) {
-			
-			if (data === "true") {
-				location.reload(); 
-				console.log("chhiriyo",data);
-				$.get('admin');
-			} else {
+	});
 
-			}
-		}
+	$('#sidebarCollapse').on('click', function() {
+		$('#sidebar').toggleClass('active');
+	});
 
+	$("#logoutLink").on('click', function(e) {
+		$.post("admin").done(location.reload());
+		e.preventDefault();
 	});
 
 })
