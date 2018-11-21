@@ -13,6 +13,8 @@ html, body {
 	font-family: 'Raleway', sans-serif;
 }
 
+
+
 /*------------------------------------------------------------------*/
 /*   IE10 in Windows 8 and Windows Phone 8 Bug fix
 /*-----------------------------------------------------------------*/
@@ -2241,4 +2243,10 @@ ul ul a {
 	min-height:25px;
 	margin-right: 5px;
     margin-left: 5px;
+}
+
+
+.mainContainer{
+	width : 100%;
+	margin-left: 100px;
 }

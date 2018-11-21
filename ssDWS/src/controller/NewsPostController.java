@@ -23,12 +23,11 @@ import model.News;
 /**
  * Servlet implementation class NewsPostController
  */
-@WebServlet({ "/NewsPostController", "/newspost" })
+@WebServlet({ "/newspost" })
 public class NewsPostController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	NewsDAO newsdao;
-	News news;
- 
+  
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -52,12 +51,13 @@ public class NewsPostController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		MainParser mp= mapper.readValue(inputJson, this.class);
-
+ 
  		String title = request.getParameter("newsTitle");
 		String description = request.getParameter("newsDescription");
 		
-		
+		News news = new News(title, description);
+		newsdao.addNews(news);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 		
 
