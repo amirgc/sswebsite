@@ -20,7 +20,7 @@ import model.Login;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/login1")
+@WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ObjectMapper mapper = new ObjectMapper();
@@ -63,7 +63,6 @@ public class LoginController extends HttpServlet {
 		System.out.println(login);
 
 		if (ld.isAthenticated(login)) {
-			request.getSession().setAttribute("isLoggedIn", "true");
 			request.getSession().setAttribute("role", "admin");
 			System.out.println("log in successful");
 			PrintWriter out = response.getWriter();

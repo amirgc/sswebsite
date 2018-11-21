@@ -31,14 +31,24 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String isLoggedIn=(String) request.getSession().getAttribute("isLoggedIn");
-		System.out.println("session value");
-		System.out.println(isLoggedIn);
-		
-		request.setAttribute("role", "admin");
-		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-		rd.forward(request, response);
+
+		String role = (String) request.getSession().getAttribute("isLoggedIn");
+
+		if (role == null) {
+			request.setAttribute("displayPage", "login");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+		} else if (role.equals("admin")) {
+			request.setAttribute("role", "admin");
+			request.setAttribute("displayPage", "admin");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+		} else {
+			request.setAttribute("displayPage", "login");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 
 	/**
@@ -47,8 +57,15 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("admin post called");
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		request.setAttribute("displayPage", "login");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
+
 	}
 
 }

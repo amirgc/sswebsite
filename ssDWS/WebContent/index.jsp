@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -16,7 +17,9 @@
 <link rel="stylesheet" href="static/css/iconfont.css">
 <link rel="stylesheet" type="text/css" href="static/css/site.css" />
 <link rel="stylesheet" href="static/css/font-awesome.min.css">
-<link rel="stylesheet" href="static/css/bootsnav.css">
+<link rel="stylesheet" type="text/css"
+	href="static/css/bootsnav.css" />
+
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse"
@@ -24,7 +27,7 @@
 	<div class="wrapper">
 
 		<div class="culmn">
-
+					
 			<c:set var="role" value="${role}" />
 			<c:set var="displayPage" value="${displayPage}" />
 			<c:choose>
