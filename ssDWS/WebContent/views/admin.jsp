@@ -7,6 +7,7 @@
 		<ul class="list-unstyled components">
 			<li class="active"><a href="#">Add News</a></li>
 			<li><a href="#">Add Products</a></li>
+			<li><a href="#">View Feedbacks</a></li>
 		</ul>
 	</nav>
 
@@ -14,10 +15,11 @@
 		<div class="row admin-nav">
 			<div class="col-md-9"></div>
 			<div class="col-md-2">welcome ${role}</div>
-			<div  class="col-md-1">
+			<div class="col-md-1">
 				<a id="logoutLink" href="">Log Out</a>
 			</div>
 		</div>
+		<div class="admin-body">Admin body</div>
 	</div>
 
 
