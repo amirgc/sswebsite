@@ -19,7 +19,15 @@
 				<a id="logoutLink" href="">Log Out</a>
 			</div>
 		</div>
-		<div class="admin-body">Admin body</div>
+		<div class="admin-body">
+		 <form id="frmLogin" action="newspost" method = "post">
+    <input type="text" id="newsTitle" name="newsTitle" placeholder="Enter News Title"/><br/>
+    <input type="text" id="newsDescription" name="newsDescription" placeholder="Enter Description"/><br/>
+  
+    <input type= "submit" value= "Post News"/>
+    </form>
+		
+		</div>
 	</div>
 
 

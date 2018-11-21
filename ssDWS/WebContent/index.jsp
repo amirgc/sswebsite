@@ -47,6 +47,9 @@
 							<section id="features" class="features roomy-60">
 								<jsp:include page="views/product.jsp" flush="true" />
 							</section>
+							<section id="latest_news" class="latest_news bg-grey roomy-60">
+								<jsp:include page="views/news.jsp" flush="true" />
+							</section>
 						</c:when>
 
 						<c:when test="${displayPage=='contact'}">
@@ -67,6 +70,9 @@
 							</section>
 							<section id="features" class="features roomy-60">
 								<jsp:include page="views/product.jsp" flush="true" />
+							</section>
+							<section id="latest_news" class="latest_news bg-grey roomy-60">
+								<jsp:include page="views/news.jsp" flush="true" />
 							</section>
 						</c:otherwise>
 					</c:choose>

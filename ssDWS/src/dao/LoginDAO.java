@@ -11,7 +11,7 @@ public class LoginDAO {
 	{
 		Users.put("gcamir15@gmail.com", new Login("gcamir15@gmail.com", "test123"));
 		Users.put("ujjwol@gmail.com", new Login("ujjwol@gmail.com", "test123"));
-		Users.put("jhonson@gmail.com", new Login("jhonson@gmail.com", "test123"));
+		Users.put("j", new Login("j", "b"));
 	}
 
 	public void addUser(Login fb) {
