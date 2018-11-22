@@ -4,6 +4,9 @@ public class News {
 	String title;
 	String description;
 	
+	public News() {
+		
+	}
 	
 	public News(String title, String description) {
  		this.title = title;

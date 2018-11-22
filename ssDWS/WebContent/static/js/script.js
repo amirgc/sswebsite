@@ -177,5 +177,38 @@ $(function() {
 		$.post("admin", {"type":"viewFeedback"}).done(location.reload());
 		event.preventDefault();
 	});
+})
 
+$(function(){
+$("#addNewsButton").on('click', function(e) {
+	var newsTitle = $('#newsTitle').val();
+	var newsDescription = $('#newsDescription').val();
+	var newsData = {
+			title : newsTitle,
+			description : newsDescription
+		}
+	console.log(newsData);
+	$.post('newspost', {
+		"newsData" : JSON.stringify(newsData)
+	}).done(fsuccess);
+	
 });
+});
+
+function fsuccess(data) {
+//	for ( let i in data)
+//		console.log("Data : - " + data[i].title + " :- " + data[i].description);
+ 
+	console.log("Data : - " + data);
+	// $('#output').text(data);
+
+}
+
+function ferror(xhr, status, exception) {
+	console.log("ERRORs:- " + status + " ---: " + exception);
+}
+
+function whenCompleted() {
+	console.log("completed");
+}
+
