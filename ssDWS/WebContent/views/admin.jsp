@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="wrapper">
 	<!-- Sidebar -->
 	<nav id="sidebar">
@@ -5,9 +7,9 @@
 			<h3>Admin Panel</h3>
 		</div>
 		<ul class="list-unstyled components">
-			<li class="active"><a href="#">Add News</a></li>
+			<li class="active"><a href="#" id="addNews">Add News</a></li>
 			<li><a href="#">Add Products</a></li>
-			<li><a href="#">View Feedbacks</a></li>
+			<li><a href="#" id="viewFeedback">View Feedbacks</a></li>
 		</ul>
 	</nav>
 
@@ -19,15 +21,23 @@
 				<a id="logoutLink" href="">Log Out</a>
 			</div>
 		</div>
-		<div class="admin-body">
-		 <form id="frmLogin" action="newspost" method = "post">
-    <input type="text" id="newsTitle" name="newsTitle" placeholder="Enter News Title"/><br/>
-    <input type="text" id="newsDescription" name="newsDescription" placeholder="Enter Description"/><br/>
-  
-    <input type= "submit" value= "Post News"/>
-    </form>
+
+		<c:choose>
 		
-		</div>
+			<c:when test="${adminDisplay=='feedbacks'}">
+				Test!!
+			</c:when>
+
+			<c:otherwise>
+				<div class="admin-body">
+					<input type="text" id="newsTitle" name="newsTitle"
+						placeholder="Enter News Title" /><br /> <input type="text"
+						id="newsDescription" name="newsDescription"
+						placeholder="Enter Description" /><br /> <input type="button"
+						id="addNewsButton" value="Post News" />
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</div>
 
 
