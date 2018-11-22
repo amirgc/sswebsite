@@ -19,7 +19,6 @@ import model.News;
 @WebServlet("")
 public class IndexController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -41,7 +40,7 @@ public class IndexController extends HttpServlet {
 		request.setAttribute("role", "user");
 		request.setAttribute("displayPage", displayPage);
 
-		if (displayPage == null ) {
+		if (displayPage == null) {
 			display(request, response);
 		}
 
@@ -61,10 +60,8 @@ public class IndexController extends HttpServlet {
 
 	private void display(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("inside");
-		NewsDAO newsdao= new NewsDAO();
-		List<News> myNews = newsdao.getNews();		
+		List<News> myNews = NewsDAO.getNews();
 		System.out.println(myNews);
-
 		request.getSession().setAttribute("myNews", myNews);
 	}
 

@@ -38,17 +38,13 @@
 				data-target="#navbar-menu">
 				<i class="fa fa-bars"></i>
 			</button>
-
-			<!--<a class="navbar-brand" href="#brand">
-                            <img src="images/logo-Sewasoft.png" class="logo" alt="">
-                        </a>-->
-
+		
 			<span class="hidden-xs hidden-sm visible-md visible-lg"
-				style="margin: 5px 0 0 0"> <a href="index.php"
+				style="margin: 5px 0 0 0; padding: 12px 0px 0px 15px;"> <a href="?displayPage=home"
 				title="Sewasoft"> <img src="static/images/sewasoft.png"
 					alt="Sewasoft"></a>
 			</span> <span class="visible-xs visible-sm hidden-md hidden-lg"
-				style="margin: 10px 0 10px 0"> <a href="index.php"
+				style="margin: 10px 0 10px 0"> <a href="?displayPage=home"
 				title="Sewasoft"> <img
 					src="static/images/logo-Sewasoft-small.png" alt="Sewasoft"></a>
 			</span>
@@ -65,7 +61,7 @@
 					<ul class="dropdown-menu animated">
 						<li><a href="">Introduction</a></li>
 						<li><a href="">Our Strength &amp; Successes</a></li>
-						<li><a href="key_strength.php">Key Strength</a></li>
+						<li><a href="">Key Strength</a></li>
 						<li><a href="">Software Development &amp; Human Resource</a></li>
 						<li><a href="">Technical Experties</a></li>
 						<li><a href="">Software Development Methodology</a></li>
@@ -79,10 +75,10 @@
 					aria-expanded="false" title="what we've been up to">Portfolio</a>
 					<ul class="dropdown-menu animated"
 						style="display: none; opacity: 1;">
-						<li><a href="software_development.php">Software
+						<li><a href="">Software
 								Development</a></li>
-						<li><a href="mobile_apps.php">Mobile Apps</a></li>
-						<li><a href="website_solutions.php">Website Solutions</a></li>
+						<li><a href="">Mobile Apps</a></li>
+						<li><a href="">Website Solutions</a></li>
 					</ul></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
