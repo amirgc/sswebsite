@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="wrapper">
 	<!-- Sidebar -->
 	<nav id="sidebar">
@@ -20,13 +22,34 @@
 			</div>
 		</div>
 		<div class="admin-body">
-		 <form id="frmLogin" action="newspost" method = "post">
+		  
     <input type="text" id="newsTitle" name="newsTitle" placeholder="Enter News Title"/><br/>
     <input type="text" id="newsDescription" name="newsDescription" placeholder="Enter Description"/><br/>
   
-    <input type= "submit" value= "Post News"/>
-    </form>
-		
+    <input type= "button" id="addNewsButton" value= "Post News"/>
+    
+		</br>
+				<h2>Latest News</h2>
+
+				<c:if test="${not empty myNews}">
+					<c:forEach items="${myNews}" var="item">
+						<div class="newsList">
+							<h3>
+								<c:out value="${item.title}" default="Default value" />
+							</h3>
+							<img src="http://www.gapsco.com/images/logo-gapsco-small.png"
+								alt="icon" />
+							<p>
+								<c:out value="${item.description}" default="Default value" />
+							</p>
+						</div>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty myNews}">
+				${"something"}
+				</c:if>
+
+ 			</div>
 		</div>
 	</div>
 
