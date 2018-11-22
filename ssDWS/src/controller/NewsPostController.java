@@ -44,7 +44,6 @@ public class NewsPostController extends HttpServlet {
 		System.out.println("Ajax call successed");
 		newsdao = new NewsDAO();
  		News news = mapper.readValue(request.getParameter("newsData"), News.class);
-		System.out.println("_______ "+news);
 		
  		newsdao.addNews(news);
 		PrintWriter out =response.getWriter();

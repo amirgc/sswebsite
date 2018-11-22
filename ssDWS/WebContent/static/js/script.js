@@ -196,11 +196,12 @@ $("#addNewsButton").on('click', function(e) {
 });
 
 function fsuccess(data) {
-//	for ( let i in data)
-//		console.log("Data : - " + data[i].title + " :- " + data[i].description);
- 
-	console.log("Data : - " + data);
-	// $('#output').text(data);
+	data = JSON.parse(data);
+	var nTitle =$('<h3>').text(data.title);
+	var nDescription = $('<p>').text(data.description);
+	$('#listNews').append(nTitle).append(nDescription);
+
+	console.log("Data : - " + data.title);
 
 }
 

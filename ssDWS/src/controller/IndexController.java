@@ -65,7 +65,7 @@ public class IndexController extends HttpServlet {
 		List<News> myNews = newsdao.getNews();		
 		System.out.println(myNews);
 
-		request.setAttribute("myNews", myNews);
+		request.getSession().setAttribute("myNews", myNews);
 	}
 
 }
