@@ -2,15 +2,15 @@
 <div>
 	<div class="row">
 	    <div class="col-md-3">
-	        <h1>Company Name</h1>
+	        <h1>Sewasoft</h1>
 	        <p>
-	            <i class="fa fa-globe" aria-hidden="true"></i> Fairfield, Iowa, USA
+	            <i class="fa fa-globe" aria-hidden="true"></i> Dahachowk, Kathmandu, Nepal
 	        </p>
 	        <p>
-	            <i class="fa fa-phone" aria-hidden="true"></i> 1-402-432-9789
+	            <i class="fa fa-phone" aria-hidden="true"></i> 977-1-4444444
 	        </p>
 	        <p>
-	            <i class="fa fa-envelope" aria-hidden="true"></i> info@company.com
+	            <i class="fa fa-envelope" aria-hidden="true"></i> sewasoft@gmail.com
 	        </p>
 	
 	    </div>
