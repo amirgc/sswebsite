@@ -4,7 +4,7 @@
 
 $(function() {
 	"use strict";
-	console.log('called function');
+	
 	$('#btn_submit').click(submitFeedback);
 
 	$("input[type='text'], textarea").click(function() {
@@ -23,7 +23,7 @@ $(function() {
 
 	function submitFeedback(event) {
 		console.log('called inside submit feedback');
-
+		toggleLoader();
 		fname = $('#firstName').val();
 		lname = $('#lastName').val();
 		country = $('#country').val();
@@ -66,8 +66,10 @@ $(function() {
 				"margin" : "30px"
 			});
 		}).always(function() {
+			
 			setTimeout(function() {
 				$("#response p").text("");
+				
 			}, 4000);
 		});
 
@@ -90,6 +92,8 @@ $(function() {
 			"color" : "green",
 			"margin" : "30px"
 		});
+		
+		toggleLoader();
 	}
 
 	function checkData(event) {
@@ -164,51 +168,66 @@ $(function() {
 	});
 
 	$("#logoutLink").on('click', function(e) {
-		$.post("admin", {"type":"logout"}).done(location.reload());
+		$.post("admin", {
+			"type" : "logout"
+		}).done(location.reload());
 		e.preventDefault();
 	});
-	
+
 	$("#addNews").click(function() {
-		$.post("admin", {"type":"addNews"}).done(location.reload());
+		$.post("admin", {
+			"type" : "addNews"
+		}).done(location.reload());
+		event.preventDefault();
+	});
+
+	$("#viewFeedback").click(function() {
+		$.post("admin", {
+			"type" : "viewFeedback"
+		}).done(location.reload());
 		event.preventDefault();
 	});
 	
-	$("#viewFeedback").click(function() {
-		$.post("admin", {"type":"viewFeedback"}).done(location.reload());
-		event.preventDefault();
+	$("#addNewsButton").on('click', function(e) {
+		var newsTitle = $('#newsTitle').val();
+		var newsDescription = $('#newsDescription').val();
+		var newsData = {
+				title : newsTitle,
+				description : newsDescription
+			}
+		console.log(newsData);
+		$.post('newspost', {
+			"newsData" : JSON.stringify(newsData)
+		}).done(fsuccess);
+		
 	});
+	
+	function fsuccess(data) {
+		data = JSON.parse(data);
+		var nTitle =$('<h3>').text(data.title);
+		var nDescription = $('<p>').text(data.description);
+		$('#listNews').append(nTitle).append(nDescription);
+
+		console.log("Data : - " + data.title);
+
+	}
+
+	function ferror(xhr, status, exception) {
+		console.log("ERRORs:- " + status + " ---: " + exception);
+	}
+
+	function whenCompleted() {
+		console.log("completed");
+	}
+
+	function toggleLoader() {
+		console.log("loader called");
+		console.log($('#loading'));
+		$('#loading').toggleClass('showHide');
+	}
+	toggleLoader();
 })
 
-$(function(){
-$("#addNewsButton").on('click', function(e) {
-	var newsTitle = $('#newsTitle').val();
-	var newsDescription = $('#newsDescription').val();
-	var newsData = {
-			title : newsTitle,
-			description : newsDescription
-		}
-	console.log(newsData);
-	$.post('newspost', {
-		"newsData" : JSON.stringify(newsData)
-	}).done(fsuccess);
-	
-});
-});
 
-function fsuccess(data) {
-//	for ( let i in data)
-//		console.log("Data : - " + data[i].title + " :- " + data[i].description);
- 
-	console.log("Data : - " + data);
-	// $('#output').text(data);
 
-}
-
-function ferror(xhr, status, exception) {
-	console.log("ERRORs:- " + status + " ---: " + exception);
-}
-
-function whenCompleted() {
-	console.log("completed");
-}
 

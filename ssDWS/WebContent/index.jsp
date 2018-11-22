@@ -11,7 +11,7 @@
 <title>Sewa Soft</title>
 
 <link rel="stylesheet" type="text/css"
-	href="static/lib/bootstrap/dist/css/bootstrap.css" /> 
+	href="static/lib/bootstrap/dist/css/bootstrap.css" />
 <link href="static/css/slick/slick.css" rel="stylesheet" />
 <link href="static/css/slick/slick-theme.css" rel="stylesheet" />
 <link rel="stylesheet" href="static/css/iconfont.css">
@@ -23,6 +23,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse"
 	data-gr-c-s-loaded="true">
+	<div id="loading"></div>
 	<div class="wrapper">
 
 		<div class="culmn">
