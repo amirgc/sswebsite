@@ -7,17 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 
 import dal.Dao;
+import dal.DataAccess;
+import dal.DataAccessFactory;
 import model.Feedback;
 
 public class FeedbackDAO implements Dao {
-	static HashMap<String, Feedback> feedbacksDB = new HashMap<>();
-	static {
+
+	DataAccess da = DataAccessFactory.getDataAccess();
+	private ArrayList<Feedback> feedbacks;
+	HashMap<String, Feedback> feedbacksDB = new HashMap<>();
+	{
+// 	static HashMap<String, Feedback> feedbacksDB = new HashMap<>();
+// 	static {
 		feedbacksDB.put("gcamir15@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
 				"Bag", "400", "I want to buy your software"));
 		feedbacksDB.put("ujjwol@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
 				"Bag", "400", "I want to buy your software BillSoft"));
 
 	}
+	private String sql;
 
 	public void addFeedback(Feedback fb) {
 		feedbacksDB.put(fb.getEmail(), fb);
@@ -37,26 +45,44 @@ public class FeedbackDAO implements Dao {
 
 	@Override
 	public String getSql() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sql;
 	}
 
 	@Override
 	public void unpackResultSet(ResultSet rs) throws SQLException {
-		// TODO Auto-generated method stub
+		feedbacks = new ArrayList<Feedback>();
+		while (rs.next()) {
+			feedbacks.add(new Feedback(rs.getString("fname"), rs.getString("lname"), rs.getString("email"),
+					rs.getString("phone"), rs.getString("country"), rs.getString("state"), rs.getString("zip"),
+					rs.getString("feedbackText")));
+		}
 
 	}
 
 	@Override
 	public boolean InsertUpdate(Object o) {
-		// TODO Auto-generated method stub
+		Feedback fed = (Feedback) o;
+		this.sql = "Insert into Feedback(fname,lname,email,phone,country,state,zip,feedbackText)" + " values('"
+				+ fed.getFname() + "','" + fed.getLname() + "','" + fed.getEmail() + "','" + fed.getPhone() + "'," + "'"
+				+ fed.getCountry() + "','" + fed.getState() + "','" + fed.getZip() + "','" + fed.getFeedbackText() + "')";
+		try {
+			da.write(this);
+			return true;
+		} catch (SQLException e) {
+
+		}
 		return false;
 	}
 
 	@Override
-	public List<?> Select() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Feedback> Select() {
+		this.sql = "Select * from Feedback";
+		try {
+			da.read(this);
+		} catch (SQLException e) {
+
+		}
+		return feedbacks;
 	}
 
 	@Override

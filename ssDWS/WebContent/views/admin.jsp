@@ -16,7 +16,7 @@
 	<div class="admin-content">
 		<div class="row admin-nav">
 			<div class="col-md-9"></div>
-			<div class="col-md-2">welcome ${role}</div>
+			<div class="col-md-2">Welcome ${role}</div>
 			<div class="col-md-1">
 				<a id="logoutLink" href="">Log Out</a>
 			</div>
@@ -53,30 +53,28 @@
 					<input type="text" id="newsTitle" name="newsTitle"
 						placeholder="Enter News Title" />
 					<br />
-					<input type="text" id="newsDescription" name="newsDescription"
-						placeholder="Enter Description" />
 					<br />
-					<input type="button" id="addNewsButton" value="Post News" />
-					<br />
-					<h2>Latest News</h2>
+					<textarea row="10" cols="80" id="newsDescription"
+						name="newsDescription" placeholder="Enter Description"></textarea>
 
-					<c:if test="${not empty myNews}">
-						<c:forEach items="${myNews}" var="item">
-							<div class="newsList">
-								<h3>
-									<c:out value="${item.title}" default="Default value" />
-								</h3>
-								<img src="http://www.gapsco.com/images/logo-gapsco-small.png"
-									alt="icon" />
-								<p>
-									<c:out value="${item.description}" default="Default value" />
-								</p>
-							</div>
+					<br /></br>
+					<input type="button" id="addNewsButton" value="Post News" />
+					</br>
+					</br>
+					<h2>Latest News</h2>
+					<div id="listNews">
+						<c:forEach items="${myNews}" var="news">
+							<h3>
+								<c:out value="${news.title}" />
+							</h3>
+							<p>
+								<c:out value="${news.description}" />
+							</p>
+							</br>
+
 						</c:forEach>
-					</c:if>
-					<c:if test="${empty myNews}">
-				${"something"}
-				</c:if>
+					</div>
+
 				</c:otherwise>
 
 			</c:choose>

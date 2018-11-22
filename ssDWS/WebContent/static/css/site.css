@@ -741,37 +741,22 @@ textarea::-webkit-input-placeholder, textarea::-moz-input-placeholder,
 
 /*Preloader*/
 #loading {
-	/*background-color: #00a885;*/
-	background-color: #3765a3; /*gs*/
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	z-index: 1;
-	margin-top: 0px;
-	top: 0px;
-	left: 0;
-	z-index: 9999;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://loading.io/spinners/typing/lg.-text-entering-comment-loader.gif");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-#loading-center {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-
-#loading-center-absolute {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 50px;
-	width: 50px;
-	margin-top: -25px;
-	margin-left: -25px;
-	-ms-transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
-	-webkit-animation: loading-center-absolute 1.5s infinite;
-	animation: loading-center-absolute 1.5s infinite;
+#loading.showHide
+{
+	display:none;
 }
 
 .object {
@@ -865,13 +850,19 @@ transform
 
 
 
+
+
 :
+
 
 
  
 
 
+
 translate
+
+
 
 
 
@@ -884,8 +875,12 @@ rotate
 
 
 
+
+
 (-180
 deg
+
+
 
 
 );
@@ -894,13 +889,19 @@ deg
 
 
 
+
+
 :
+
 
 
  
 
 
+
 translate
+
+
 
 
 
@@ -913,12 +914,15 @@ rotate
 
 
 
+
+
 (-180
 deg
 
 
-);
-}
+
+
+);}
 }
 @
 -webkit-keyframes object_two { 25% {
@@ -2032,36 +2036,6 @@ work Section style
 	-o-object-fit: cover;
 }
 
-/*Portfolio*/
-/*{
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.item {
-  position: relative;
-  border:1px solid #e0e0e0;
-  margin: 2%;
-  overflow: hidden;
-  width: 100%;
-}
-.item img {
-  max-width: 100%;
-  
-  -moz-transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.item:hover img {
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-/*Client Tele*/
 .clients_wrap {
 	position: relative;
 }

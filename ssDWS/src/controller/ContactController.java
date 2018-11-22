@@ -42,6 +42,7 @@ public class ContactController extends HttpServlet {
 		System.out.println(jsonString);
 		Feedback feedback = mapper.readValue(jsonString, Feedback.class); //uses default (i.e.empty) constructor and setter methods of Feedback class to create this object
 		dao.addFeedback(feedback);
+		dao.InsertUpdate(feedback);
 
 		PrintWriter out = response.getWriter();
 		try {

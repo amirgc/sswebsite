@@ -77,8 +77,10 @@ public class AdminController extends HttpServlet {
 			adminDisplay = "addNews";
 		} else if (type.equals("viewFeedback")) {
 			adminDisplay = "feedbacks";
-			System.out.println(FeedbackDAO.getAllFeedbacks());
-			request.getSession().setAttribute("feedbacks", FeedbackDAO.getAllFeedbacks());
+			System.out.println(dao.getAllFeedbacks());
+			request.getSession().setAttribute("feedbacks", dao.Select());
+// 			System.out.println(FeedbackDAO.getAllFeedbacks());
+// 			request.getSession().setAttribute("feedbacks", FeedbackDAO.getAllFeedbacks());
 		} else {
 
 		}
