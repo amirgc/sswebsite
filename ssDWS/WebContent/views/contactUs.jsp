@@ -2,7 +2,7 @@
 <div>
 	<div class="row">
 	    <div class="col-md-3">
-	        <h1>Company Name</h1>
+	        <h1>Sewasoft</h1>
 	        <p>
 	            <i class="fa fa-globe" aria-hidden="true"></i> Dahachowk, Kathmandu, Nepal
 	        </p>
