@@ -24,7 +24,7 @@
 						</div>
 
 						<div class="home_btns m-top-40">
-							<a href="#" class="btn btn-default m-top-20" tabindex="-1">Read
+							<a href="" class="btn btn-default m-top-20" tabindex="-1">Read
 								More</a>
 						</div>
 					</div>
@@ -45,7 +45,7 @@
 						</div>
 
 						<div class="home_btns m-top-40">
-							<a href="#" class="btn btn-default m-top-20" tabindex="0">Read
+							<a href="" class="btn btn-default m-top-20" tabindex="0">Read
 								More</a>
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 						</div>
 
 						<div class="home_btns m-top-40">
-							<a href="#" class="btn btn-default m-top-20" tabindex="-1">Read
+							<a href="" class="btn btn-default m-top-20" tabindex="-1">Read
 								More</a>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 						</div>
 
 						<div class="home_btns m-top-40">
-							<a href="#" class="btn btn-default m-top-20" tabindex="-1">Read
+							<a href="" class="btn btn-default m-top-20" tabindex="-1">Read
 								More</a>
 						</div>
 					</div>
@@ -106,29 +106,11 @@
 						</div>
 
 						<div class="home_btns m-top-40">
-							<a href="#" class="btn btn-default m-top-20" tabindex="-1">Read
+							<a href="" class="btn btn-default m-top-20" tabindex="-1">Read
 								More</a>
 						</div>
 					</div>
-					<ul class="slick-dots" style="display: block;" role="tablist">
-						<li class="" aria-hidden="true" role="presentation"
-							aria-selected="true" aria-controls="navigation00"
-							id="slick-slide00"><button type="button" data-role="none"
-								role="button" tabindex="0">1</button></li>
-						<li aria-hidden="false" role="presentation" aria-selected="false"
-							aria-controls="navigation01" id="slick-slide01"
-							class="slick-active"><button type="button" data-role="none"
-								role="button" tabindex="0">2</button></li>
-						<li aria-hidden="true" role="presentation" aria-selected="false"
-							aria-controls="navigation02" id="slick-slide02" class=""><button
-								type="button" data-role="none" role="button" tabindex="0">3</button></li>
-						<li aria-hidden="true" role="presentation" aria-selected="false"
-							aria-controls="navigation03" id="slick-slide03" class=""><button
-								type="button" data-role="none" role="button" tabindex="0">4</button></li>
-						<li aria-hidden="true" role="presentation" aria-selected="false"
-							aria-controls="navigation04" id="slick-slide04" class=""><button
-								type="button" data-role="none" role="button" tabindex="0">5</button></li>
-					</ul>
+					
 				</div>
 			</div>
 		</div>
