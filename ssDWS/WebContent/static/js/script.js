@@ -164,11 +164,21 @@ $(function() {
 	});
 
 	$("#logoutLink").on('click', function(e) {
-		$.post("admin").done(location.reload());
+		$.post("admin", {"type":"logout"}).done(location.reload());
 		e.preventDefault();
 	});
-
+	
+	$("#addNews").click(function() {
+		$.post("admin", {"type":"addNews"}).done(location.reload());
+		event.preventDefault();
+	});
+	
+	$("#viewFeedback").click(function() {
+		$.post("admin", {"type":"viewFeedback"}).done(location.reload());
+		event.preventDefault();
+	});
 })
+
 $(function(){
 $("#addNewsButton").on('click', function(e) {
 	var newsTitle = $('#newsTitle').val();
@@ -201,3 +211,4 @@ function ferror(xhr, status, exception) {
 function whenCompleted() {
 	console.log("completed");
 }
+
