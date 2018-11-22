@@ -24,8 +24,17 @@
 		<div class="admin-body">
 			<c:choose>
 				<c:when test="${adminDisplay=='feedbacks'}">
-				Test!!
-			</c:when>
+					<h3>Feedbacks from Users</h3>
+					<%-- <c:if test="${not empty feedbacks}"> --%>
+						<c:forEach items="${feedbacks}" var="data">
+							<div>
+								<c:out value="${data.feedbackText}" />
+								hello hello mic testing
+							</div>
+						</c:forEach>
+					<%-- </c:if> --%>
+					<%= request.getSession().getAttribute("feedbacks").toString() %>
+				</c:when>
 
 				<c:otherwise>
 					<input type="text" id="newsTitle" name="newsTitle"
@@ -35,7 +44,7 @@
 						placeholder="Enter Description" />
 					<br />
 					<input type="button" id="addNewsButton" value="Post News" />
-					</br>
+					<br />
 					<h2>Latest News</h2>
 
 					<c:if test="${not empty myNews}">
@@ -56,9 +65,8 @@
 				${"something"}
 				</c:if>
 				</c:otherwise>
-				
+
 			</c:choose>
 		</div>
 	</div>
-</div>
 </div>

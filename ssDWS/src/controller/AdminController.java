@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.FeedbackDAO;
+
 /**
  * Servlet implementation class AdminController
  */
@@ -62,6 +64,8 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		String adminDisplay = ""; //jsp to display on main area of admin page
 		
+		FeedbackDAO dao = new FeedbackDAO();
+		
 		if(type.equals("logout")) {
 			HttpSession session = request.getSession(false);
 			if (session != null) {
@@ -77,6 +81,7 @@ public class AdminController extends HttpServlet {
 		}
 		else if(type.equals("viewFeedback")) {
 			adminDisplay = "feedbacks";
+			request.getSession().setAttribute("feedbacks", dao.getAllFeedbacks());
 		}
 		else {
 			
