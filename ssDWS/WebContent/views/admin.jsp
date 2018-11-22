@@ -37,26 +37,21 @@
 					<input type="button" id="addNewsButton" value="Post News" />
 					</br>
 					<h2>Latest News</h2>
+					<div id="listNews">
+						<c:forEach items="${myNews}" var="news">
+							<h3>
+								<c:out value="${news.title}" />
+							</h3>
+							<p>
+								<c:out value="${news.description}" />
+							</p>
+							</br>
 
-					<c:if test="${not empty myNews}">
-						<c:forEach items="${myNews}" var="item">
-							<div class="newsList">
-								<h3>
-									<c:out value="${item.title}" default="Default value" />
-								</h3>
-								<img src="http://www.gapsco.com/images/logo-gapsco-small.png"
-									alt="icon" />
-								<p>
-									<c:out value="${item.description}" default="Default value" />
-								</p>
-							</div>
 						</c:forEach>
-					</c:if>
-					<c:if test="${empty myNews}">
-				${"something"}
-				</c:if>
+					</div>
+
 				</c:otherwise>
-				
+
 			</c:choose>
 		</div>
 	</div>
