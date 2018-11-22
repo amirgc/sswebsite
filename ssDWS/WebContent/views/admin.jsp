@@ -31,11 +31,13 @@
 					<input type="text" id="newsTitle" name="newsTitle"
 						placeholder="Enter News Title" />
 					<br />
-					<input type="text" id="newsDescription" name="newsDescription"
-						placeholder="Enter Description" />
-					<br />
+					<br/>
+					<textarea row = "10" cols = "80" id="newsDescription" name="newsDescription"
+						placeholder="Enter Description" ></textarea>
+				 
+					<br /></br>
 					<input type="button" id="addNewsButton" value="Post News" />
-					</br>
+					</br></br>
 					<h2>Latest News</h2>
 					<div id="listNews">
 						<c:forEach items="${myNews}" var="news">

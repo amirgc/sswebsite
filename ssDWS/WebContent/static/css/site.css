@@ -2233,6 +2233,12 @@ a[data-toggle="collapse"] {
 
 
 .mainContainer{
-	width : 100%;
+	width : 90%;
 	margin-left: 100px;
+	margin-right:500px;
+}
+
+.mainContainer p{
+	margin-right : 5px;
+	overflow : auto;
 }

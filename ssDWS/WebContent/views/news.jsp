@@ -75,17 +75,14 @@
 							<h3>
 								<c:out value="${item.title}" default="Default value" />
 							</h3>
-							<img src="http://www.gapsco.com/images/logo-gapsco-small.png"
-								alt="icon" />
-							<p>
+							 
+							<div>
 								<c:out value="${item.description}" default="Default value" />
-							</p>
+							</div>
 						</div>
+						</br>
 					</c:forEach>
 				</c:if>
-
-
-				<button type="button" class="btn btn-light">See All</button>
 			</div>
 		</div>
 	</div>
