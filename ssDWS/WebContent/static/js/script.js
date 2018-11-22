@@ -192,22 +192,23 @@ $(function() {
 		var newsTitle = $('#newsTitle').val();
 		var newsDescription = $('#newsDescription').val();
 		var newsData = {
-			title : newsTitle,
-			description : newsDescription
-		}
+				title : newsTitle,
+				description : newsDescription
+			}
 		console.log(newsData);
 		$.post('newspost', {
 			"newsData" : JSON.stringify(newsData)
 		}).done(fsuccess);
-
+		
 	});
 	
 	function fsuccess(data) {
-		// for ( let i in data)
-		// console.log("Data : - " + data[i].title + " :- " + data[i].description);
+		data = JSON.parse(data);
+		var nTitle =$('<h3>').text(data.title);
+		var nDescription = $('<p>').text(data.description);
+		$('#listNews').append(nTitle).append(nDescription);
 
-		console.log("Data : - " + data);
-		// $('#output').text(data);
+		console.log("Data : - " + data.title);
 
 	}
 
@@ -218,6 +219,7 @@ $(function() {
 	function whenCompleted() {
 		console.log("completed");
 	}
+
 	function toggleLoader() {
 		console.log("loader called");
 		console.log($('#loading'));
@@ -225,6 +227,7 @@ $(function() {
 	}
 	toggleLoader();
 })
+
 
 
 
