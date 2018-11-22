@@ -16,7 +16,7 @@
 	<div class="admin-content">
 		<div class="row admin-nav">
 			<div class="col-md-9"></div>
-			<div class="col-md-2">welcome ${role}</div>
+			<div class="col-md-2">Welcome ${role}</div>
 			<div class="col-md-1">
 				<a id="logoutLink" href="">Log Out</a>
 			</div>
