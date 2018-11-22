@@ -8,11 +8,10 @@ import java.util.List;
 
 import dal.Dao;
 import model.Feedback;
-import model.Login;
 
 public class FeedbackDAO implements Dao {
-	HashMap<String, Feedback> feedbacksDB = new HashMap<>();
-	{
+	static HashMap<String, Feedback> feedbacksDB = new HashMap<>();
+	static {
 		feedbacksDB.put("gcamir15@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
 				"Bag", "400", "I want to buy your software"));
 		feedbacksDB.put("ujjwol@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
@@ -32,7 +31,7 @@ public class FeedbackDAO implements Dao {
 		return feedbacksDB.get(email);
 	}
 
-	public List<Feedback> getAllFeedbacks() {
+	public static List<Feedback> getAllFeedbacks() {
 		return new ArrayList<Feedback>(feedbacksDB.values());
 	}
 
