@@ -62,7 +62,7 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		String adminDisplay = ""; // jsp to display on main area of admin page
 
-		FeedbackDAO dao = new FeedbackDAO();
+		//FeedbackDAO dao = new FeedbackDAO();
 
 		if (type.equals("logout")) {
 			HttpSession session = request.getSession(false);
@@ -79,6 +79,8 @@ public class AdminController extends HttpServlet {
 			adminDisplay = "feedbacks";
 			System.out.println(dao.getAllFeedbacks());
 			request.getSession().setAttribute("feedbacks", dao.Select());
+// 			System.out.println(FeedbackDAO.getAllFeedbacks());
+// 			request.getSession().setAttribute("feedbacks", FeedbackDAO.getAllFeedbacks());
 		} else {
 
 		}

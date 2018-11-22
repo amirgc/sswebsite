@@ -52,7 +52,7 @@ public class ContactController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		dao.getAllFeedbacks().stream()
+		FeedbackDAO.getAllFeedbacks().stream()
 							 .forEach(System.out::println);
 		
 //		String fname = request.getParameter("fname");
