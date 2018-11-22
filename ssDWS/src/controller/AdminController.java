@@ -59,14 +59,12 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("admin post called");
-		
 		String type = request.getParameter("type");
-		String adminDisplay = ""; //jsp to display on main area of admin page
-		
+		String adminDisplay = ""; // jsp to display on main area of admin page
+
 		FeedbackDAO dao = new FeedbackDAO();
-		
-		if(type.equals("logout")) {
+
+		if (type.equals("logout")) {
 			HttpSession session = request.getSession(false);
 			if (session != null) {
 				session.invalidate();
@@ -75,18 +73,16 @@ public class AdminController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 			return;
-		}
-		else if(type.equals("addNews")) {
+		} else if (type.equals("addNews")) {
 			adminDisplay = "addNews";
-		}
-		else if(type.equals("viewFeedback")) {
+		} else if (type.equals("viewFeedback")) {
 			adminDisplay = "feedbacks";
+			System.out.println(dao.getAllFeedbacks());
 			request.getSession().setAttribute("feedbacks", dao.getAllFeedbacks());
+		} else {
+
 		}
-		else {
-			
-		}
-		
+
 		request.getSession().setAttribute("adminDisplay", adminDisplay);
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
