@@ -8,22 +8,30 @@ import java.util.List;
 
 import dal.Dao;
 import model.Feedback;
+import model.Login;
 
-public class FeedbackDAO implements Dao{
+public class FeedbackDAO implements Dao {
 	HashMap<String, Feedback> feedbacksDB = new HashMap<>();
+	{
+		feedbacksDB.put("gcamir15@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
+				"Bag", "400", "I want to buy your software"));
+		feedbacksDB.put("ujjwol@gmail.com", new Feedback("AmirGC", "GC", "gcamir15@gmail.com", "9841639655", "Nepal",
+				"Bag", "400", "I want to buy your software BillSoft"));
+
+	}
 
 	public void addFeedback(Feedback fb) {
 		feedbacksDB.put(fb.getEmail(), fb);
 	}
-	
+
 	public void addFeedback(String email, Feedback fb) {
 		feedbacksDB.put(email, fb);
 	}
-	
+
 	public Feedback getFeedbackForUser(String email) {
 		return feedbacksDB.get(email);
 	}
-	
+
 	public List<Feedback> getAllFeedbacks() {
 		return new ArrayList<Feedback>(feedbacksDB.values());
 	}
@@ -37,7 +45,7 @@ public class FeedbackDAO implements Dao{
 	@Override
 	public void unpackResultSet(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

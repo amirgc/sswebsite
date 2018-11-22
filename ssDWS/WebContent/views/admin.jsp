@@ -23,18 +23,31 @@
 		</div>
 		<div class="admin-body">
 			<c:choose>
+
 				<c:when test="${adminDisplay=='feedbacks'}">
 					<h3>Feedbacks from Users</h3>
 					<%-- <c:if test="${not empty feedbacks}"> --%>
-						<c:forEach items="${feedbacks}" var="data">
-							<div>
-								<c:out value="${data.feedbackText}" />
-								hello hello mic testing
-							</div>
-						</c:forEach>
-					<%-- </c:if> --%>
-					<%= request.getSession().getAttribute("feedbacks").toString() %>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Email</th>
+								<th scope="col">Feedbacks</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${feedbacks}" var="data">
+								<tr>
+									<td>${data.fname}</td>
+									<td>${data.email}</td>
+									<td>${data.feedbackText}</td>
+								</tr>
+
+							</c:forEach>
+						</tbody>
+					</table>
 				</c:when>
+
 
 				<c:otherwise>
 					<input type="text" id="newsTitle" name="newsTitle"
