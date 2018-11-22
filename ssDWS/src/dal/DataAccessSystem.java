@@ -37,10 +37,14 @@ public class DataAccessSystem implements DataAccess {
 		Connection con = null;
 		try {
 			con = ConnectManager.Connect();
+			if(con==null)
+			{
+				System.out.println("null connection 3");
+			}
 			Statement stmt = con.createStatement();
-			//System.out.println("the query: " + query);
+			System.out.println("the query: " + query);
 			stmt.executeUpdate(query);
-			//System.out.println("the query: " + query+" ran successfull.");
+			System.out.println("the query: " + query+" ran successfull.");
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -61,7 +65,7 @@ public class DataAccessSystem implements DataAccess {
 	public static class ConnectManager {
 
 		private static Connection connection = null;
-		private static final String DB_URL = "jdbc:ucanaccess://src/MsAccessDb/LibraryManagementSystem.accdb";
+		private static final String DB_URL = "jdbc:ucanaccess://C:/Users/gcami/OneDrive/Desktop/Mum/WAP_All/FinalProject/sswebsite/ssDWS/src/MsAccessDb/LibraryManagementSystem.accdb";
 
 		public static Connection Connect() {
 			try {
