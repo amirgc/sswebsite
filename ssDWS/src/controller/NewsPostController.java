@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 //import com.google.gson.Gson;
@@ -27,38 +28,31 @@ import model.News;
 public class NewsPostController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	NewsDAO newsdao;
-  
+	ObjectMapper mapper = new ObjectMapper();
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ObjectMapper objectMapper = new ObjectMapper();
-		newsdao = new NewsDAO();
-		if(newsdao!=null) {
-				System.out.println("GET NEWS :- "+newsdao.getNews());
-		}
- 
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
- 		PrintWriter pp= response.getWriter();
-		pp.print(objectMapper.writeValueAsString(newsdao.getNews()));
-  		
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("Ajax call successed");
+		newsdao = new NewsDAO();
+ 		News news = mapper.readValue(request.getParameter("newsData"), News.class);
+		System.out.println("_______ "+news);
 		
- 
- 		String title = request.getParameter("newsTitle");
-		String description = request.getParameter("newsDescription");
-		
-		News news = new News(title, description);
-		newsdao.addNews(news);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-	
+ 		newsdao.addNews(news);
+		PrintWriter out =response.getWriter();
+		try{
+			out.print(mapper.writeValueAsString(news));
+		}catch (JsonGenerationException e) {
+			e.printStackTrace();
+		}
 		
 
 	}
